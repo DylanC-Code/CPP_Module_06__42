@@ -27,7 +27,12 @@ RM := rm -rf
 
 # 📁 Sources & Objets
 SRCS := main.cpp \
-		Serializer.cpp
+		Base.cpp \
+		A.cpp \
+		B.cpp \
+		C.cpp \
+		generate.cpp \
+		identify.cpp
 OBJS := $(SRCS:.cpp=.o)
 
 

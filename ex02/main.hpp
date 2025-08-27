@@ -1,25 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   C.hpp                                              :+:      :+:    :+:   */
+/*   main.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dcastor <dcastor@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/27 12:35:01 by dcastor           #+#    #+#             */
-/*   Updated: 2025/08/27 14:07:14 by dcastor          ###   ########.fr       */
+/*   Created: 2025/08/27 12:50:08 by dcastor           #+#    #+#             */
+/*   Updated: 2025/08/27 12:51:06 by dcastor          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef C_CPP
-#define C_CPP
+#pragma once
 
 #include "Base.hpp"
 
-class C : public Base
-{
-public:
-	C();
-	~C();
-};
+void identify(Base *p);
+void identify(Base &p);
 
-#endif
+Base *generate(void);

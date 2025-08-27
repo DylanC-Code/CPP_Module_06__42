@@ -1,25 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   C.hpp                                              :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dcastor <dcastor@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/27 12:35:01 by dcastor           #+#    #+#             */
-/*   Updated: 2025/08/27 14:07:14 by dcastor          ###   ########.fr       */
+/*   Created: 2025/08/27 12:49:53 by dcastor           #+#    #+#             */
+/*   Updated: 2025/08/27 14:04:20 by dcastor          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef C_CPP
-#define C_CPP
+#include "main.hpp"
+#include <stdlib.h>
+#include <ctime>
 
-#include "Base.hpp"
-
-class C : public Base
+int main()
 {
-public:
-	C();
-	~C();
-};
+	srand(time(NULL));
+	Base *base = generate();
+	if (!base)
+		return 1;
+	identify(base);
+	identify(*base);
+	delete base;
 
-#endif
+	return 0;
+}

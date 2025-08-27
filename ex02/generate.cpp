@@ -1,25 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   C.hpp                                              :+:      :+:    :+:   */
+/*   generate.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dcastor <dcastor@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/27 12:35:01 by dcastor           #+#    #+#             */
-/*   Updated: 2025/08/27 14:07:14 by dcastor          ###   ########.fr       */
+/*   Created: 2025/08/27 12:39:06 by dcastor           #+#    #+#             */
+/*   Updated: 2025/08/27 12:39:47 by dcastor          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef C_CPP
-#define C_CPP
-
+#include "A.hpp"
+#include "B.hpp"
+#include "C.hpp"
 #include "Base.hpp"
+#include <cstdlib>
 
-class C : public Base
+Base *generate(void)
 {
-public:
-	C();
-	~C();
-};
-
-#endif
+	int random = rand() % 3;
+	if (random == 0)
+		return new A();
+	else if (random == 1)
+		return new B();
+	else
+		return new C();
+}
