@@ -6,11 +6,12 @@
 /*   By: dcastor <dcastor@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/26 09:38:20 by dcastor           #+#    #+#             */
-/*   Updated: 2025/08/26 12:50:04 by dcastor          ###   ########.fr       */
+/*   Updated: 2025/08/27 09:57:41 by dcastor          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScalarConverter.hpp"
+#include <iomanip>
 
 void ScalarConverter::converter(const std::string &scalar)
 {
@@ -85,6 +86,7 @@ void ScalarConverter::handleFloat(const std::string &scalar)
 		std::cout << "int: impossible" << std::endl;
 	else
 		std::cout << "int: " << static_cast<int>(val) << std::endl;
+	std::cout << std::fixed << std::setprecision(1);
 	std::cout << "float: " << val << "f" << std::endl;
 	std::cout << "double: " << static_cast<double>(val) << std::endl;
 }
@@ -97,6 +99,7 @@ void ScalarConverter::handleDouble(const std::string &scalar)
 		std::cout << "int: impossible" << std::endl;
 	else
 		std::cout << "int: " << static_cast<int>(val) << std::endl;
+	std::cout << std::fixed << std::setprecision(1);
 	if (val < -FLT_MAX || val > FLT_MAX)
 		std::cout << "float: impossible" << std::endl;
 	else
