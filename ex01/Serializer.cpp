@@ -1,30 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Serializer.hpp                                     :+:      :+:    :+:   */
+/*   Serializer.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dcastor <dcastor@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/27 10:16:54 by dcastor           #+#    #+#             */
-/*   Updated: 2025/08/27 12:09:38 by dcastor          ###   ########.fr       */
+/*   Created: 2025/08/27 11:57:53 by dcastor           #+#    #+#             */
+/*   Updated: 2025/08/27 12:08:16 by dcastor          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SERIALIZER_HPP
-#define SERIALIZER_HPP
+#include "Serializer.hpp"
 
-#include <stdint.h>
-
-struct Data
+uintptr_t Serializer::serialize(Data *ptr)
 {
-	int jambon;
-};
+	return reinterpret_cast<uintptr_t>(ptr);
+}
 
-class Serializer
+Data *Serializer::deserialize(uintptr_t raw)
 {
-public:
-	uintptr_t serialize(Data *ptr);
-	Data *deserialize(uintptr_t raw);
-};
-
-#endif
+	return reinterpret_cast<Data *>(raw);
+}
