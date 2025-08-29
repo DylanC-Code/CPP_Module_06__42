@@ -6,7 +6,7 @@
 /*   By: dcastor <dcastor@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/27 10:16:54 by dcastor           #+#    #+#             */
-/*   Updated: 2025/08/27 12:09:38 by dcastor          ###   ########.fr       */
+/*   Updated: 2025/08/29 14:24:11 by dcastor          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,12 @@ struct Data
 
 class Serializer
 {
+private:
+	Serializer();
+
 public:
-	uintptr_t serialize(Data *ptr);
-	Data *deserialize(uintptr_t raw);
+	static uintptr_t serialize(Data *ptr);
+	static Data *deserialize(uintptr_t raw);
 };
 
 #endif
