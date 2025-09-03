@@ -6,7 +6,7 @@
 /*   By: dcastor <dcastor@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/26 09:38:20 by dcastor           #+#    #+#             */
-/*   Updated: 2025/09/03 09:26:49 by dcastor          ###   ########.fr       */
+/*   Updated: 2025/09/03 09:35:09 by dcastor          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,9 +37,9 @@ void ScalarConverter::converter(const std::string &scalar)
 
 void ScalarConverter::handleChar(const std::string &scalar)
 {
-	char *end;
-	double val = std::strtod(scalar.c_str(), &end);
-	if (val >= 33 && val <= 126 && end != scalar.c_str() && *end == '\0')
+	double val = toDouble(scalar);
+
+	if (val >= 33 && val <= 126)
 	{
 		char c = static_cast<char>(val);
 		std::cout << "char: " << c << std::endl;
@@ -109,6 +109,15 @@ void ScalarConverter::handleDouble(const std::string &scalar)
 	else
 		std::cout << "float: " << static_cast<float>(val) << "f" << std::endl;
 	std::cout << "double: " << val << std::endl;
+}
+
+double ScalarConverter::toDouble(const std::string &scalar)
+{
+	char *end;
+	double val = std::strtod(scalar.c_str(), &end);
+	if (*end != '\0' && *end != 'f')
+		return 0.0;
+	return val;
 }
 
 /* Checkers */

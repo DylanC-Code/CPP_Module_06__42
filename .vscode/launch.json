@@ -10,7 +10,7 @@
 			"request": "launch",
 			"program": "${workspaceFolder}/ex00/tests",
 			"args": [
-				"1111111111111111111111111111111111111111"
+				"42.0f"
 			],
 			"MIMode": "gdb",
 			"cwd": "${workspaceFolder}",
