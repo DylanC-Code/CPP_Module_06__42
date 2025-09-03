@@ -6,7 +6,7 @@
 /*   By: dcastor <dcastor@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/27 10:16:54 by dcastor           #+#    #+#             */
-/*   Updated: 2025/08/29 14:24:11 by dcastor          ###   ########.fr       */
+/*   Updated: 2025/09/03 09:38:02 by dcastor          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 
 struct Data
 {
-	int jambon;
+	int nothing_but_something;
 };
 
 class Serializer

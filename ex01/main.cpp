@@ -6,7 +6,7 @@
 /*   By: dcastor <dcastor@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/26 10:15:08 by dcastor           #+#    #+#             */
-/*   Updated: 2025/08/29 14:25:44 by dcastor          ###   ########.fr       */
+/*   Updated: 2025/09/03 09:38:01 by dcastor          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 int main()
 {
 	Data data;
-	data.jambon = 42;
+	data.nothing_but_something = 42;
 
 	uintptr_t raw = Serializer::serialize(&data);
 	Data *deserializedData = Serializer::deserialize(raw);
