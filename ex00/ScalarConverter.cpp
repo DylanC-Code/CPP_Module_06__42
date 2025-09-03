@@ -6,12 +6,13 @@
 /*   By: dcastor <dcastor@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/26 09:38:20 by dcastor           #+#    #+#             */
-/*   Updated: 2025/08/27 09:57:41 by dcastor          ###   ########.fr       */
+/*   Updated: 2025/09/03 09:26:49 by dcastor          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScalarConverter.hpp"
 #include <iomanip>
+#include <string>
 
 void ScalarConverter::converter(const std::string &scalar)
 {
@@ -36,9 +37,11 @@ void ScalarConverter::converter(const std::string &scalar)
 
 void ScalarConverter::handleChar(const std::string &scalar)
 {
-	if (scalar.length() == 1)
+	char *end;
+	double val = std::strtod(scalar.c_str(), &end);
+	if (val >= 33 && val <= 126 && end != scalar.c_str() && *end == '\0')
 	{
-		char c = static_cast<char>(scalar[0]);
+		char c = static_cast<char>(val);
 		std::cout << "char: " << c << std::endl;
 		return;
 	}
@@ -93,13 +96,14 @@ void ScalarConverter::handleFloat(const std::string &scalar)
 
 void ScalarConverter::handleDouble(const std::string &scalar)
 {
-	double val = atof(scalar.c_str());
+	char *end;
+	double val = std::strtod(scalar.c_str(), &end);
 
 	if (val < INT_MIN || val > INT_MAX)
 		std::cout << "int: impossible" << std::endl;
 	else
 		std::cout << "int: " << static_cast<int>(val) << std::endl;
-	std::cout << std::fixed << std::setprecision(1);
+	// std::cout << std::fixed << std::setprecision(1);
 	if (val < -FLT_MAX || val > FLT_MAX)
 		std::cout << "float: impossible" << std::endl;
 	else
@@ -141,7 +145,7 @@ bool ScalarConverter::isFloat(const std::string &scalar)
 
 	if (*end != '\0')
 		return false;
-	if ((val == HUGE_VAL || val == -HUGE_VAL) && errno == ERANGE)
+	if (errno == ERANGE)
 		return false;
 	if (val == 0.0 && errno == ERANGE)
 		return false;
